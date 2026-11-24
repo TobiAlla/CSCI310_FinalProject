@@ -1,67 +1,39 @@
 """
 main.py
 ====================================
-This is an example file with correct docstring examples
+Community Detection Visualizer
+
+Main program for loading and visualizing network datasets.
 
 | Author: Tobias Allerstorfer
 | Date: 2026 November 23
 """
 
-class SayHello:
-    """
-    Base class example
-    
-    This class provides an example to work from
-    
-    Parameters
-    ----------
-    name : str
-        The user's name
-    
-    Attributes
-    ----------
-    name : str
-        The user's name
-        
-    Examples
-    --------
-    >>> hello = SayHello("Bob")
-    >>> hello.greet(', welcome!')
-    Hello Bob, welcome!
-    """
-    
-    def __init__(self, name):
-        """
-        Initialize a new SayHello instance.
-        
-        Parameters
-        ----------
-        name : str
-            The user's name
-        """
-        self.name = name
-   
-    def greet(self, extraText):
-        """
-        Greets self.name and adds extraText to the output.
-        
-        Parameters
-        ----------
-        extraText : str
-            Text to add after the hello username
-            
-        Returns
-        -------
-        int
-            An integer as an example of returning a value
-        """
-        print(f'Hello {self.name}{extraText}')
-        return len(self.name)
 
 
-if __name__ == '__main__':
-    """Runs if file called as script as opposed to being imported as a library
+from graphloader import loadGraph, displayGraphInfo
+from visualization import visualizeGraph
+
+
+def main():
     """
-    bob = SayHello('Bob')
-    bobLen = bob.greet(', welcome!')
-    print(bobLen)
+    Run the Community Detection Visualizer.
+    """
+
+    graph = loadGraph("karate")
+    
+    displayGraphInfo(graph)
+
+  
+    print("Generating network visualization...")
+
+    visualizeGraph(
+        graph,
+        title="Karate Club Network"
+    )
+
+    
+
+
+if __name__ == "__main__":
+    main()
